@@ -1,18 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="example.yuan.com.talkwithme.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionBarWithStatusBarSize"
+        android:elevation="@dimen/len_2"
+        android:outlineProvider="bounds"
+        >
 
-</android.support.constraint.ConstraintLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/statusBarSize"
+            android:paddingRight="@dimen/len_4"
+            android:paddingLeft="@dimen/len_4">
+
+            <example.yuan.com.common.widget.PortraitView
+                android:id="@+id/img_portrait"
+                android:foreground="@drawable/ic_touch_menu"
+                android:layout_width="@dimen/len_40"
+                android:layout_height="@dimen/len_40"
+                android:layout_margin="@dimen/font_4"
+              android:src="@drawable/default_portrait"
+                android:scaleType="centerCrop"
+                android:padding="@dimen/len_4"/>
+
+            <TextView
+                android:id="@+id/txt_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textAppearance="@style/TextAppearance.Title"/>
+
+            <ImageView
+                android:id="@+id/img_serch"
+                android:layout_width="@dimen/len_40"
+                android:layout_height="@dimen/len_40"
+                android:layout_gravity="end|center_vertical"
+                android:layout_margin="@dimen/font_4"
+                android:foreground="@drawable/ic_touch_menu"
+                android:padding="@dimen/font_10"
+                android:scaleType="centerInside"
+                android:tint="?attr/toolbarMenuIconColor"
+                android:src="@drawable/ic_search" />
+        </FrameLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <FrameLayout
+        android:id="@+id/lay_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/len_52"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <net.qiujuer.genius.ui.widget.FloatActionButton
+        android:id="@+id/btn_action"
+        android:layout_width="@dimen/len_52"
+        android:layout_height="@dimen/len_52"
+        android:layout_marginBottom="@dimen/len_68"
+        android:layout_marginEnd="@dimen/len_16"
+        android:padding="@dimen/len_20"
+        android:src="@drawable/ic_group_add"
+        android:tint="@color/white"
+        app:gBackgroundColor="@color/colorAccent"
+        app:layout_anchor="@id/lay_container"
+        app:layout_anchorGravity="bottom|end" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/BottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/len_52"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        app:menu="@menu/navigation_items"
+        app:itemIconTint="@color/text_nav"
+        app:itemTextColor="@color/text_nav"
+        android:elevation="@dimen/len_4"
+        android:outlineProvider="bounds"
+        android:translationZ="@dimen/len_8"/>
+
+    </android.support.design.widget.CoordinatorLayout>

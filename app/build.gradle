@@ -43,6 +43,7 @@ dependencies {
     //butterknife
     implementation "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
-
+    //图片剪切库
+    implementation "com.yalantis:ucrop:$rootProject.ext.ucropVersion"
     implementation project(':common')
 }

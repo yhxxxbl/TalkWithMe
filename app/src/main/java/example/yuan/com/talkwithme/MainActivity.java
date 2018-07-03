@@ -1,10 +1,15 @@
 package example.yuan.com.talkwithme;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,6 +19,7 @@ import android.view.animation.AnticipateOvershootInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
@@ -28,6 +34,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import example.yuan.com.common.app.Activity;
 import example.yuan.com.common.widget.PortraitView;
+import example.yuan.com.talkwithme.activities.AccountActivity;
 import example.yuan.com.talkwithme.fragments.mainfragment.ActiveFragment;
 import example.yuan.com.talkwithme.fragments.mainfragment.ContactFragment;
 import example.yuan.com.talkwithme.fragments.mainfragment.FindFragment;
@@ -61,6 +68,17 @@ public class MainActivity extends Activity implements
         context.startActivity(new Intent(context, MainActivity.class));
     }
 
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (ContextCompat.checkSelfPermission
+                (MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(MainActivity.this,
+                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},1);
+        }else{
+            return;
+        }
+    }
 
     @Override
     protected int getContentLayoutId() {
@@ -77,7 +95,6 @@ public class MainActivity extends Activity implements
                 .add(R.id.action_contact, new NavHelper.Tab<>(ContactFragment.class, R.string.title_contact))
                 .add(R.id.action_find, new NavHelper.Tab<>(FindFragment.class, R.string.title_find));
 
-
         //添加事件监听
         mNavigation.setOnNavigationItemSelectedListener(this);
         Glide.with(this)
@@ -92,21 +109,35 @@ public class MainActivity extends Activity implements
     }
 
     @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode){
+            case 1:
+                if (grantResults.length>0&&grantResults[0]==PackageManager.PERMISSION_GRANTED){
+                    return;
+                }else {
+                    Toast.makeText(this,"Please pass the permission",Toast.LENGTH_SHORT).show();
+                }break;
+                default:
+        }
+    }
+
+    @Override
     protected void initData() {
         super.initData();
         //从底部导航中接管Menu
         //然后手动设置第一次点击
         Menu menu = mNavigation.getMenu();
-        menu.performIdentifierAction(R.id.action_home, 0);
+        menu.performIdentifierAction(R.id.action_contact, 0);
     }
 
     @OnClick(R.id.img_serch)
     void onSearchMenuClick() {
+
     }
 
     @OnClick(R.id.btn_action)
     void onActionClick() {
-
+        AccountActivity.show(this);
     }
 
     @Override
@@ -152,4 +183,6 @@ public class MainActivity extends Activity implements
                 .start();
     }
 }
+
+
 

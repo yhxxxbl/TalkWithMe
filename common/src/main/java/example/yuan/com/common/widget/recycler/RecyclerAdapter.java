@@ -16,8 +16,6 @@ import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-
-@SuppressWarnings({"unchecked", "unused"})
 public abstract class RecyclerAdapter<Data>
         extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder<Data>>
         implements View.OnClickListener, View.OnLongClickListener, AdapterCallback<Data> {
@@ -180,6 +178,8 @@ public abstract class RecyclerAdapter<Data>
         notifyDataSetChanged();
     }
 
+
+
     @Override
     public void update(Data data, ViewHolder<Data> holder) {
         // 得到当前ViewHolder的坐标
@@ -285,6 +285,7 @@ public abstract class RecyclerAdapter<Data>
 
     /**
      * 对回调接口做一次实现AdapterListener
+     * 使实现该接口的类可以不完全实现里面的方法
      *
      * @param <Data>
      */
@@ -300,4 +301,7 @@ public abstract class RecyclerAdapter<Data>
 
         }
     }
+
+
+
 }

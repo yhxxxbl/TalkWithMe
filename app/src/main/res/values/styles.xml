@@ -1,7 +1,7 @@
 <resources>
 
     <style name="AppTheme" parent="AppTheme.Base">
-        <!--<item name="toolbarStyle">@style/Widget.Toolbar</item>
+<!--        <item name="toolbarStyle">@style/Widget.Toolbar</item>
         <item name="toolbarNavigationButtonStyle">@style/Widget.ToolbarNavigationButtonStyle</item>
         <item name="actionOverflowButtonStyle">@style/Widget.ActionButton.Overflow</item>
         <item name="actionOverflowMenuStyle">@style/Widget.PopupMenu.Overflow</item>-->

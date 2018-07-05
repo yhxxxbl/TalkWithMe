@@ -46,4 +46,7 @@ dependencies {
     //图片剪切库
     implementation "com.yalantis:ucrop:$rootProject.ext.ucropVersion"
     implementation project(':common')
+    implementation project(':factory')
+
+    implementation "pub.devrel:easypermissions:$rootProject.ext.easyPMVersion"
 }

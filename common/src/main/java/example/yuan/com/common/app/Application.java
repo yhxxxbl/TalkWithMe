@@ -94,6 +94,7 @@ public class Application extends android.app.Application {
     public static void showToast(final String msg) {
         // Toast 只能在主线程中显示，所有需要进行线程转换，
         // 保证一定是在主线程进行的show操作
+        //Run方法是genius库中的一个方法实现了对handler的封装
         Run.onUiAsync(new Action() {
             @Override
             public void call() {

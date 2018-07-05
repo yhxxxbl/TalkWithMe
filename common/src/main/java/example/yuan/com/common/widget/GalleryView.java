@@ -58,7 +58,7 @@ public class GalleryView extends RecyclerView {
         mAdapter.setListener(new RecyclerAdapter.AdapterListenerImpl<Image>() {
             @Override
             public void onItemClick(RecyclerAdapter.ViewHolder holder, Image image) {
-                if(onItemSelectClick(image))//noinspection SingleStatementInBlock
+                if(onItemSelectClick(image))
                 {
                     holder.updateData(image);
                 }

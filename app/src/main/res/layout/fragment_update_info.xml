@@ -4,14 +4,12 @@
     android:layout_height="match_parent"
     tools:context="example.yuan.com.talkwithme.fragments.accountFragment.UpdateInfoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
 <example.yuan.com.common.widget.PortraitView
     android:id="@+id/im_portrait"
     android:src="@color/colorAccent"
     android:layout_width="@dimen/portraitMaxSize"
     android:layout_height="@dimen/portraitMaxSize"
-    android:scaleType="center"
-    android:layout_gravity="center"
-    />
+    android:layout_gravity="center" />
 
 </FrameLayout>

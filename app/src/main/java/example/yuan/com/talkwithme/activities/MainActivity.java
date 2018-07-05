@@ -1,25 +1,15 @@
-package example.yuan.com.talkwithme;
+package example.yuan.com.talkwithme.activities;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AnticipateOvershootInterpolator;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
@@ -34,7 +24,8 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import example.yuan.com.common.app.Activity;
 import example.yuan.com.common.widget.PortraitView;
-import example.yuan.com.talkwithme.activities.AccountActivity;
+import example.yuan.com.talkwithme.R;
+import example.yuan.com.talkwithme.assist.PermissionFragment;
 import example.yuan.com.talkwithme.fragments.mainfragment.ActiveFragment;
 import example.yuan.com.talkwithme.fragments.mainfragment.ContactFragment;
 import example.yuan.com.talkwithme.fragments.mainfragment.FindFragment;
@@ -63,21 +54,12 @@ public class MainActivity extends Activity implements
 
     private NavHelper<Integer> mNavHelper;
 
-
+    /**
+     * Intent调起MainActivity的方法
+     * @param context 上下文
+     */
     public static void show(Context context) {
         context.startActivity(new Intent(context, MainActivity.class));
-    }
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (ContextCompat.checkSelfPermission
-                (MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(MainActivity.this,
-                    new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},1);
-        }else{
-            return;
-        }
     }
 
     @Override
@@ -108,18 +90,7 @@ public class MainActivity extends Activity implements
                 });
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode){
-            case 1:
-                if (grantResults.length>0&&grantResults[0]==PackageManager.PERMISSION_GRANTED){
-                    return;
-                }else {
-                    Toast.makeText(this,"Please pass the permission",Toast.LENGTH_SHORT).show();
-                }break;
-                default:
-        }
-    }
+
 
     @Override
     protected void initData() {

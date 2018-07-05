@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="example.yuan.com.talkwithme">
-<!--    网络相关权限-->
+
+    <!-- 网络相关权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-<!--数据读写相关权限-->
+    <!-- 数据读写相关权限 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-<!--录音权限-->
+    <!-- 录音权限 -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-
 
     <application
         android:name=".App"
@@ -21,23 +21,27 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Main">
+            android:name=".LaunchActivity"
+            android:label="@string/title_activity_launch">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activities.AccountActivity"
-            android:theme="@style/AppTheme.Account"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.yalantis.ucrop.UCropActivity"
+        <activity
+            android:name=".activities.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"
-            />
-
+            android:theme="@style/AppTheme.Main">
+        </activity>
+        <activity
+            android:name=".activities.AccountActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Account" />
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

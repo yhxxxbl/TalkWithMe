@@ -34,6 +34,7 @@ implements GalleryView.SelectChangeListener{
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+        //返回一个我们已经复写的透明dialog
         return new TransBottomSheetDialog (getContext());
 
     }
@@ -84,7 +85,7 @@ implements GalleryView.SelectChangeListener{
         void onSelectedImage(String path);
     }
 
-    private static class TransBottomSheetDialog extends BottomSheetDialog{
+    public static class TransBottomSheetDialog extends BottomSheetDialog{
 
         public TransBottomSheetDialog(@NonNull Context context) {
             super(context);

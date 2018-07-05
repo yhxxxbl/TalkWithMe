@@ -10,9 +10,6 @@ import example.yuan.com.talkwithme.R;
  * A simple {@link Fragment} subclass.
  */
 public class ActiveFragment extends Fragment {
-    @BindView(R.id.galleryView)
-    GalleryView mGallery;
-
 
     public ActiveFragment() {
         // Required empty public constructor
@@ -26,12 +23,5 @@ public class ActiveFragment extends Fragment {
     @Override
     protected void initData() {
         super.initData();
-
-        mGallery.setup(getLoaderManager(), new GalleryView.SelectChangeListener() {
-            @Override
-            public void onSelectedCountChanged(int Count) {
-
-            }
-        });
     }
 }

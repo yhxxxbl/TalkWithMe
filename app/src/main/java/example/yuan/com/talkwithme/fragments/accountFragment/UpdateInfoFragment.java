@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,8 @@ import butterknife.OnClick;
 import example.yuan.com.common.app.Application;
 import example.yuan.com.common.app.Fragment;
 import example.yuan.com.common.widget.PortraitView;
+import example.yuan.com.factory.Factory;
+import example.yuan.com.factory.net.UploadHelper;
 import example.yuan.com.talkwithme.R;
 import example.yuan.com.talkwithme.fragments.media.GalleryFragment;
 
@@ -57,10 +60,7 @@ public class UpdateInfoFragment extends Fragment {
                 //设置压缩后的图片精度
                 options.setCompressionQuality(96);
 
-
                 File file= Application.getPortraitTmpFile();
-
-
                 UCrop.of(Uri.fromFile(new File(path)),Uri.fromFile(file))
                         .withAspectRatio(1,1)//一比一比例
                         .withMaxResultSize(520,520)//返回最大的尺寸
@@ -84,6 +84,11 @@ public class UpdateInfoFragment extends Fragment {
         }
     }
 
+    /**
+     * 将Uri加载到当前头像
+     * @param uri
+     */
+
     private void loadPortrait(Uri uri){
         Glide.with(this)
                 .load(uri)
@@ -91,5 +96,15 @@ public class UpdateInfoFragment extends Fragment {
                 .centerCrop()
                 .into(mPortrait);
 
+        final String localPath=uri.getPath();
+        Log.e("TAG","localPath"+localPath);
+
+        Factory.runOnAsync(new Runnable() {
+            @Override
+            public void run() {
+                String url=UploadHelper.uploadPortrait(localPath);
+                Log.e("TAG","URL"+url);
+            }
+        });
     }
 }

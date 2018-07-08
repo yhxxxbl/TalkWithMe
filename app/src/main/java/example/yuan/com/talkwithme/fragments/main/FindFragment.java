@@ -1,10 +1,5 @@
-package example.yuan.com.talkwithme.fragments.mainfragment;
+package example.yuan.com.talkwithme.fragments.main;
 
-
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import example.yuan.com.common.app.Fragment;
 import example.yuan.com.talkwithme.R;

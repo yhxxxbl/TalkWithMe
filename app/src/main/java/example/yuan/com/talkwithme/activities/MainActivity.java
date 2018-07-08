@@ -25,10 +25,9 @@ import butterknife.OnClick;
 import example.yuan.com.common.app.Activity;
 import example.yuan.com.common.widget.PortraitView;
 import example.yuan.com.talkwithme.R;
-import example.yuan.com.talkwithme.assist.PermissionFragment;
-import example.yuan.com.talkwithme.fragments.mainfragment.ActiveFragment;
-import example.yuan.com.talkwithme.fragments.mainfragment.ContactFragment;
-import example.yuan.com.talkwithme.fragments.mainfragment.FindFragment;
+import example.yuan.com.talkwithme.fragments.main.ActiveFragment;
+import example.yuan.com.talkwithme.fragments.main.ContactFragment;
+import example.yuan.com.talkwithme.fragments.main.FindFragment;
 import example.yuan.com.talkwithme.helper.NavHelper;
 
 public class MainActivity extends Activity implements

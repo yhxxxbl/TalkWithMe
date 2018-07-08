@@ -1,9 +1,7 @@
-package example.yuan.com.talkwithme.fragments.mainfragment;
+package example.yuan.com.talkwithme.fragments.main;
 
 
-import butterknife.BindView;
 import example.yuan.com.common.app.Fragment;
-import example.yuan.com.common.widget.GalleryView;
 import example.yuan.com.talkwithme.R;
 
 /**

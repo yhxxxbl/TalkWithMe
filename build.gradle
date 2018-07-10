@@ -47,4 +47,9 @@ ext{
     easyPMVersion = "0.3.0"
     ossVersion = '2.3.0'
 
+    gsonVersion = '2.8.0'
+    retrofitVersion = '2.1.0'
+
+
+
 }

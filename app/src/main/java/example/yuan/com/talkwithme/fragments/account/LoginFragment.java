@@ -32,7 +32,7 @@ public class LoginFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        //
+        //切换fragment
         mAccountTrigger.triggerView();
     }
 }

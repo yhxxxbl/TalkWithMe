@@ -56,7 +56,7 @@
                 android:paddingTop="@dimen/len_8"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="@color/textPrimary"
-                android:textColorHint="@color/textSecond"
+                android:textColorHint="@color/textPrimary"
                 android:textCursorDrawable="@drawable/ic_cursor"
                 android:textSize="@dimen/font_16" />
         </LinearLayout>
@@ -99,7 +99,7 @@
                 android:paddingTop="@dimen/len_8"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="@color/textPrimary"
-                android:textColorHint="@color/textSecond"
+                android:textColorHint="@color/textPrimary"
                 android:textCursorDrawable="@drawable/ic_cursor"
                 android:textSize="@dimen/font_16" />
 

@@ -1,6 +1,10 @@
 package example.yuan.com.factory.model.db;
 
 import com.google.gson.annotations.Expose;
+import com.raizlabs.android.dbflow.annotation.Column;
+import com.raizlabs.android.dbflow.annotation.PrimaryKey;
+import com.raizlabs.android.dbflow.annotation.Table;
+import com.raizlabs.android.dbflow.structure.BaseModel;
 
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -8,22 +12,32 @@ import java.util.Date;
 /**
  * Created by Administrator on 2018/7/9/009.
  */
+@Table(database =AppDatabase.class)
+public class User extends BaseModel {
+    public static final int SEX_MAN=1;
+    public static final int SEX_WOMAN=2;
 
-public class User {
+    @PrimaryKey//主键
     private String id;
+    @Column
     private String name;
+    @Column
     private String phone;
+    @Column
     private String desc;
+    @Column
     private String portrait;
+    @Column
     private int sex=0;
-
+    @Column
     private String alias;//对别的用户的备注信息，写入数据库
-
+    @Column
     private int follows;//用户粉丝的数量
-
+    @Column
     private int following;//用户关注人的数量
-
+    @Column
     private boolean isFollow;
+    @Column
     private Date modiftAt;
 
     public String getId() {

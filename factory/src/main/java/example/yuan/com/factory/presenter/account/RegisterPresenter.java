@@ -16,6 +16,7 @@ import example.yuan.com.factory.data.DataSource;
 import example.yuan.com.factory.data.helper.AccountHelper;
 import example.yuan.com.factory.model.api.account.RegisterModel;
 import example.yuan.com.factory.model.db.User;
+import example.yuan.com.factory.persistence.Account;
 import example.yuan.com.factory.presenter.BasePresenter;
 
 /**
@@ -46,7 +47,7 @@ public class RegisterPresenter extends BasePresenter<RegisterContract.View>
         }else {
             //成功，进行网络请求
             //构造Model，进行请求调用
-            RegisterModel model=new RegisterModel(phone,password,name);
+            RegisterModel model=new RegisterModel(phone,password,name, Account.getPushId());
             //进行网络请求，并设置会送接口为自己：上面实现了DataSource.CallBack<User>接口
             AccountHelper.register(model,this);
         }

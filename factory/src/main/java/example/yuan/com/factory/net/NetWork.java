@@ -26,4 +26,12 @@ public class NetWork {
                 .build();
 
     }
+
+    /**
+     * 返回一个请求代理
+     * @return RemoteService
+     */
+    public static RemoteService remoteService(){
+        return NetWork.getRetrofit().create(RemoteService.class);
+    }
 }

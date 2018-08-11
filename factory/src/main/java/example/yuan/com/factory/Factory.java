@@ -5,6 +5,8 @@ import android.support.annotation.StringRes;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.raizlabs.android.dbflow.config.FlowConfig;
+import com.raizlabs.android.dbflow.config.FlowManager;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
@@ -12,6 +14,8 @@ import java.util.concurrent.Executors;
 import example.yuan.com.common.app.Application;
 import example.yuan.com.factory.data.DataSource;
 import example.yuan.com.factory.model.api.RspModel;
+import example.yuan.com.factory.persistence.Account;
+import example.yuan.com.factory.utils.DbFlowExclusionStrategies;
 
 
 public class Factory {
@@ -32,8 +36,19 @@ public class Factory {
                 //设置时间格式
                 .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS")
                 //设置一个过滤器，数据库级别的Model不进行Json转换
-                //.setExclusionStrategies()
+                .setExclusionStrategies(new DbFlowExclusionStrategies())
                 .create();
+    }
+
+    /**
+     * Factory的初始化操作
+     */
+    public static void setup(){
+        FlowManager.init(new FlowConfig.Builder(app())
+        .openDatabasesOnInit(true)//数据库初始化时打开数据库
+        .build());
+        //将持久化的数据进行初始化
+        Account.load(app());
     }
 
     /**
@@ -141,10 +156,9 @@ public class Factory {
 
     /**
      * 处理推送来的消息
-     *
      * @param message 消息
      */
     public static void dispatchPush(String message) {
-        // TODO
+
     }
 }

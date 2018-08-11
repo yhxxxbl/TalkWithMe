@@ -5,6 +5,10 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
+        maven { url "https://www.jitpack.io" }
+        //个推私有Maven URL地址
+        maven { url "http://mvn.gt.igexin.com/nexus/content/repositories/releases/" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.0'
@@ -49,6 +53,9 @@ ext{
 
     gsonVersion = '2.8.0'
     retrofitVersion = '2.1.0'
+
+    getuiVersion = '2.9.3.0'
+    dbflowVersion = "4.0.0-beta7"
 
 
 

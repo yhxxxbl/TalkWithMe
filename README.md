@@ -7,6 +7,8 @@
 - 完成了基本Activity Fragment的封装
 - 做了登陆注册的界面 也完成了一定的逻辑
 - 做了用户头像的裁剪以及上传
+
+
 ![1](https://upload-images.jianshu.io/upload_images/1467700-34354e27cc451ba2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 ![2](https://upload-images.jianshu.io/upload_images/1467700-0f57eb504fbec0d6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)

@@ -143,7 +143,14 @@
                 android:textCursorDrawable="@drawable/ic_cursor"
                 android:textSize="@dimen/font_16"/>
         </LinearLayout>
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginBottom="@dimen/len_2"
+            android:layout_marginEnd="@dimen/len_8"
+            android:layout_marginStart="@dimen/len_44"
+            android:layout_marginTop="@dimen/len_2"
+            android:background="@color/black_alpha_32" />
 
 
 </LinearLayout>

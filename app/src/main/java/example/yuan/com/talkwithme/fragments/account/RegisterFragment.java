@@ -20,7 +20,7 @@ import example.yuan.com.talkwithme.activities.MainActivity;
  * 注册界面
  */
 public class RegisterFragment extends PresenterFragment<RegisterContract.Presenter>
-implements RegisterContract.View{
+        implements RegisterContract.View {
 
     private AccountTrigger mAccountTrigger;
     @BindView(R.id.edit_phone)
@@ -41,14 +41,14 @@ implements RegisterContract.View{
 
     @Override
     protected RegisterContract.Presenter initPersenter() {
-        return new RegisterPresenter(this );
+        return new RegisterPresenter(this);
     }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         //拿到Activity的应用
-        mAccountTrigger=(AccountTrigger)context;
+        mAccountTrigger = (AccountTrigger) context;
     }
 
     @Override
@@ -57,17 +57,18 @@ implements RegisterContract.View{
     }
 
     @OnClick(R.id.btn_submit)
-    void onSubmitClick(){
-        String phone=mPhone.getText().toString();
-        String password=mPassword.getText().toString();
-        String name=mName.getText().toString();
+    void onSubmitClick() {
+        String phone = mPhone.getText().toString();
+        String password = mPassword.getText().toString();
+        String name = mName.getText().toString();
 
         //调用presenter层注册
-        mPresenter.register(phone,password,name);
+        mPresenter.register(phone, password, name);
     }
 
     @OnClick(R.id.txt_go_login)
-    void onShowLoginClick(){
+    void onShowLoginClick() {
+        mAccountTrigger.triggerView();
         //让AccountActivity进行界面切换
     }
 

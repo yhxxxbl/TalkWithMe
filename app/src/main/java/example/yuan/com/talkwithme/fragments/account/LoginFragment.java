@@ -5,6 +5,7 @@ import android.content.Context;
 import android.widget.Button;
 import android.widget.EditText;
 
+import android.widget.TextView;
 import net.qiujuer.genius.ui.widget.Loading;
 
 import butterknife.BindView;
@@ -33,6 +34,9 @@ public class LoginFragment extends PresenterFragment<LoginContract.Presenter>
 
     @BindView(R.id.btn_submit)
     Button mSubmit;
+
+    @BindView(R.id.txt_go_register)
+    TextView mRegister;
 
 
     public LoginFragment() {
@@ -83,6 +87,7 @@ public class LoginFragment extends PresenterFragment<LoginContract.Presenter>
         mPassword.setEnabled(true);
         // 提交按钮可以继续点击
         mSubmit.setEnabled(true);
+        mRegister.setEnabled(true);
     }
 
 
@@ -99,6 +104,7 @@ public class LoginFragment extends PresenterFragment<LoginContract.Presenter>
         mPassword.setEnabled(false);
         // 提交按钮不可以继续点击
         mSubmit.setEnabled(false);
+        mRegister.setEnabled(false);
     }
 
     @Override

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.widget.Button;
 import android.widget.EditText;
 
+import android.widget.TextView;
 import net.qiujuer.genius.ui.widget.Loading;
 
 import butterknife.BindView;
@@ -35,6 +36,8 @@ implements RegisterContract.View{
     @BindView(R.id.btn_submit)
     Button mSubmit;
 
+    @BindView(R.id.txt_go_login)
+    TextView mLogin;
     public RegisterFragment() {
         // Required empty public constructor
     }
@@ -81,6 +84,7 @@ implements RegisterContract.View{
         mName.setEnabled(true);
         mPassword.setEnabled(true);
         mSubmit.setEnabled(true);
+        mLogin.setEnabled(true);
     }
 
     @Override
@@ -92,6 +96,7 @@ implements RegisterContract.View{
         mName.setEnabled(false);
         mPassword.setEnabled(false);
         mSubmit.setEnabled(false);
+        mLogin.setEnabled(false);
     }
 
     @Override

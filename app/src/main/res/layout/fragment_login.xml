@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_gradient_black"
-        android:paddingBottom="@dimen/len_28"
         android:paddingTop="@dimen/len_40"
+        android:paddingBottom="@dimen/len_28"
         app:title="@string/label_login_welcome"
         app:titleTextAppearance="@style/TextAppearance.AppCompat.Display1" />
 
@@ -21,11 +21,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/len_16"
-        android:layout_marginRight="@dimen/len_16"
         android:layout_marginTop="@dimen/len_16"
+        android:layout_marginRight="@dimen/len_16"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/len_8"
-        android:paddingTop="@dimen/len_8">
+        android:paddingTop="@dimen/len_8"
+        android:paddingBottom="@dimen/len_8">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,13 +47,13 @@
                 android:id="@+id/edit_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/len_2"
                 android:layout_marginStart="@dimen/len_4"
+                android:layout_marginEnd="@dimen/len_2"
                 android:background="@null"
                 android:hint="@string/label_phone"
                 android:inputType="phone"
-                android:paddingBottom="@dimen/len_8"
                 android:paddingTop="@dimen/len_8"
+                android:paddingBottom="@dimen/len_8"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="@color/textPrimary"
                 android:textColorHint="@color/textPrimary"
@@ -64,10 +64,10 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
-            android:layout_marginBottom="@dimen/len_2"
-            android:layout_marginEnd="@dimen/len_8"
             android:layout_marginStart="@dimen/len_44"
             android:layout_marginTop="@dimen/len_2"
+            android:layout_marginEnd="@dimen/len_8"
+            android:layout_marginBottom="@dimen/len_2"
             android:background="@color/black_alpha_32" />
 
         <LinearLayout
@@ -90,13 +90,13 @@
                 android:id="@+id/edit_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/len_2"
                 android:layout_marginStart="@dimen/len_4"
+                android:layout_marginEnd="@dimen/len_2"
                 android:background="@null"
                 android:hint="@string/label_password"
                 android:inputType="textPassword"
-                android:paddingBottom="@dimen/len_8"
                 android:paddingTop="@dimen/len_8"
+                android:paddingBottom="@dimen/len_8"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textColor="@color/textPrimary"
                 android:textColorHint="@color/textPrimary"
@@ -105,14 +105,22 @@
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginStart="@dimen/len_44"
+            android:layout_marginTop="@dimen/len_2"
+            android:layout_marginEnd="@dimen/len_8"
+            android:layout_marginBottom="@dimen/len_2"
+            android:background="@color/black_alpha_32" />
     </LinearLayout>
 
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:layout_marginEnd="@dimen/len_16"
-        android:layout_marginTop="@dimen/len_16">
+        android:layout_marginTop="@dimen/len_16"
+        android:layout_marginEnd="@dimen/len_16">
 
         <TextView
             android:id="@+id/txt_go_register"

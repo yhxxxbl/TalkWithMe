@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -51,6 +53,9 @@ public class MainActivity extends Activity implements
     @BindView(R.id.btn_action)
     View mAction;
 
+    @BindView(R.id.drawLayout)
+    DrawerLayout mDrawerLyaout;
+
     private NavHelper<Integer> mNavHelper;
 
     /**
@@ -69,6 +74,7 @@ public class MainActivity extends Activity implements
     @Override
     protected void initWidget() {
         super.initWidget();
+
         //初始化底部辅助工具类
         mNavHelper = new NavHelper<>(this, R.id.lay_container, getSupportFragmentManager(), this);
 
@@ -103,6 +109,11 @@ public class MainActivity extends Activity implements
     @OnClick(R.id.img_serch)
     void onSearchMenuClick() {
 
+    }
+
+    @OnClick(R.id.img_portrait)
+    void onPortraitClick(){
+        mDrawerLyaout.openDrawer(GravityCompat.START);
     }
 
     @OnClick(R.id.btn_action)

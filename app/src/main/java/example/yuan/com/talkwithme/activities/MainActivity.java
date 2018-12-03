@@ -6,9 +6,11 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.AnticipateOvershootInterpolator;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -35,6 +37,12 @@ import example.yuan.com.talkwithme.helper.NavHelper;
 public class MainActivity extends Activity implements
         BottomNavigationView.OnNavigationItemSelectedListener, NavHelper.OnTabChangedListener<Integer> {
 
+    @BindView(R.id.main_layout_right)
+    View mLayoutRight;
+
+    @BindView(R.id.main_layout_left)
+    TextView mLayoutLeft;
+
     @BindView(R.id.appBar)
     View mLayAppBar;
 
@@ -60,6 +68,7 @@ public class MainActivity extends Activity implements
 
     /**
      * Intent调起MainActivity的方法
+     *
      * @param context 上下文
      */
     public static void show(Context context) {
@@ -89,13 +98,39 @@ public class MainActivity extends Activity implements
                 .centerCrop()
                 .into(new ViewTarget<View, GlideDrawable>(mLayAppBar) {
                     @Override
-                    public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> glideAnimation) {
+                    public void onResourceReady(GlideDrawable resource,
+                                                GlideAnimation<? super GlideDrawable> glideAnimation) {
                         this.view.setBackground(resource.getCurrent());
                     }
                 });
+
+        mDrawerLyaout.addDrawerListener(new DrawerLayout.DrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                //获取屏幕的宽高
+                WindowManager manager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
+                Display display = manager.getDefaultDisplay();
+                //设置右面的布局位置  根据左面菜单的right作为右面布局的left   左面的right+屏幕的宽度（或者right的宽度这里是相等的）为右面布局的right
+                mLayoutRight.layout(mLayoutLeft.getRight(), 0, mLayoutLeft.getRight() + display.getWidth(),
+                        display.getHeight());
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+
+            }
+        });
     }
-
-
 
     @Override
     protected void initData() {
@@ -112,7 +147,7 @@ public class MainActivity extends Activity implements
     }
 
     @OnClick(R.id.img_portrait)
-    void onPortraitClick(){
+    void onPortraitClick() {
         mDrawerLyaout.openDrawer(GravityCompat.START);
     }
 
@@ -149,7 +184,7 @@ public class MainActivity extends Activity implements
             if (Objects.equals(newTab.extra, R.string.title_contact)) {
                 rotation = 720;
             }
-            if (Objects.equals(newTab.extra, R.string.title_find)){
+            if (Objects.equals(newTab.extra, R.string.title_find)) {
                 transY = Ui.dipToPx(getResources(), 76);
 
             }

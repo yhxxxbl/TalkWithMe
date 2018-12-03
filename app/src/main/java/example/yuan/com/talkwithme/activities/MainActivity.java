@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Display;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.AnticipateOvershootInterpolator;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -41,7 +43,7 @@ public class MainActivity extends Activity implements
     View mLayoutRight;
 
     @BindView(R.id.main_layout_left)
-    TextView mLayoutLeft;
+    NavigationView mLayoutLeft;
 
     @BindView(R.id.appBar)
     View mLayAppBar;
@@ -62,7 +64,7 @@ public class MainActivity extends Activity implements
     View mAction;
 
     @BindView(R.id.drawLayout)
-    DrawerLayout mDrawerLyaout;
+    DrawerLayout mDrawerLayout;
 
     private NavHelper<Integer> mNavHelper;
 
@@ -83,7 +85,9 @@ public class MainActivity extends Activity implements
     @Override
     protected void initWidget() {
         super.initWidget();
-
+        NavigationView navigationView = findViewById(R.id.main_layout_left);
+        View mHeaderLyaout = navigationView.getHeaderView(0)
+                .findViewById(R.id.header_layout);
         //初始化底部辅助工具类
         mNavHelper = new NavHelper<>(this, R.id.lay_container, getSupportFragmentManager(), this);
 
@@ -103,8 +107,8 @@ public class MainActivity extends Activity implements
                         this.view.setBackground(resource.getCurrent());
                     }
                 });
-
-        mDrawerLyaout.addDrawerListener(new DrawerLayout.DrawerListener() {
+        //为DrawerLayout设置监听事件
+        mDrawerLayout.addDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
                 //获取屏幕的宽高
@@ -130,6 +134,25 @@ public class MainActivity extends Activity implements
 
             }
         });
+        //初始化NavigationView
+        mLayoutLeft.setCheckedItem(R.id.nav_call);
+        mLayoutLeft.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                mDrawerLayout.closeDrawers();
+                return true;
+            }
+        });
+        Glide.with(getApplicationContext())
+                .load(R.drawable.header_photo)
+                .centerCrop()
+                .into(new ViewTarget<View, GlideDrawable>(mHeaderLyaout) {
+                    @Override
+                    public void onResourceReady(GlideDrawable resource,
+                                                GlideAnimation<? super GlideDrawable> glideAnimation) {
+                        this.view.setBackground(resource.getCurrent());
+                    }
+                });
     }
 
     @Override
@@ -148,7 +171,7 @@ public class MainActivity extends Activity implements
 
     @OnClick(R.id.img_portrait)
     void onPortraitClick() {
-        mDrawerLyaout.openDrawer(GravityCompat.START);
+        mDrawerLayout.openDrawer(GravityCompat.START);
     }
 
     @OnClick(R.id.btn_action)

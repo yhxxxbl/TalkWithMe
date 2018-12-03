@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.DrawerLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/drawLayout"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawLayout"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
     <android.support.design.widget.CoordinatorLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -95,12 +96,16 @@
 
     </android.support.design.widget.CoordinatorLayout>
 
+    <android.support.design.widget.NavigationView
+        android:id="@+id/main_layout_left"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:itemTextColor="@color/black_alpha_112"
+        app:menu="@menu/nav_menu"
+        app:headerLayout="@layout/nav_header">
 
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/colorAccent"
-            android:id="@+id/main_layout_left"
-            android:text="hello world"
-            android:layout_gravity="start"/>
+
+    </android.support.design.widget.NavigationView>
+
 </android.support.v4.widget.DrawerLayout>

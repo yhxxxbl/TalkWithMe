@@ -1,29 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <group android:checkableBehavior="single">
+    <group android:checkableBehavior="none"
+           android:id="@+id/group_normal">
         <item
-            android:id="@+id/nav_call"
-            android:icon="@drawable/app_icon"
-            android:title="Call" />
+                android:id="@+id/nav_About"
+                android:icon="@drawable/ic_nav_gift"
+                android:title="关于"/>
 
         <item
-            android:id="@+id/nav_friend"
-            android:icon="@drawable/app_icon"
-            android:title="Friend" />
+                android:id="@+id/nav_photo"
+                android:icon="@drawable/ic_nav_photo"
+                android:title="照片"/>
 
         <item
-            android:id="@+id/nav_location"
-            android:icon="@drawable/app_icon"
-            android:title="Location" />
+                android:id="@+id/nav_location"
+                android:icon="@drawable/ic_nav_location"
+                android:title="位置"/>
+
+    </group>
+    <group android:checkableBehavior="none"
+           android:id="@+id/group_about">
 
         <item
-            android:id="@+id/nav_mail"
-            android:icon="@drawable/app_icon"
-            android:title="Mail" />
-
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_nav_share"
+                android:title="分享"/>
         <item
-            android:id="@+id/nav_task"
-            android:icon="@drawable/app_icon"
-            android:title="Tasks" />
+                android:id="@+id/nav_setting"
+                android:icon="@drawable/ic_nav_settings"
+                android:title="设置"/>
     </group>
 </menu>

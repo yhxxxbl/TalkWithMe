@@ -96,6 +96,7 @@ public class MainActivity extends Activity implements
                 .add(R.id.action_find, new NavHelper.Tab<>(FindFragment.class, R.string.title_find));
 
         //添加事件监听
+        mNavigation.setItemIconTintList(null);
         mNavigation.setOnNavigationItemSelectedListener(this);
         Glide.with(this)
                 .load(R.drawable.bg_src_paint)
@@ -135,7 +136,7 @@ public class MainActivity extends Activity implements
             }
         });
         //初始化NavigationView
-        mLayoutLeft.setCheckedItem(R.id.nav_call);
+        mLayoutLeft.setItemIconTintList(null);
         mLayoutLeft.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {

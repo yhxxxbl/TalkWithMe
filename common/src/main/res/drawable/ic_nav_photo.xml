@@ -1,0 +1,11 @@
+<!--
+  ~ Copyright (C) 2018 Facishare Technology Co., Ltd. All Rights Reserved.
+  -->
+<vector android:height="24dp" android:viewportHeight="1024"
+    android:viewportWidth="1024" android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#424A60" android:pathData="M39.38,19.69h945.23v984.62H39.38z"/>
+    <path android:fillColor="#EFCE4A" android:pathData="M275.69,267.2m-89.97,0a89.97,89.97 0,1 0,179.95 0,89.97 89.97,0 1,0 -179.95,0Z"/>
+    <path android:fillColor="#E7ECED" android:pathData="M39.38,807.38h945.23v196.92H39.38z"/>
+    <path android:fillColor="#1A9172" android:pathData="M964.92,632.34L945.23,610.46 708.92,393.85 502.15,620.31l107.97,107.97L689.23,807.38h275.69z"/>
+    <path android:fillColor="#25AE88" android:pathData="M610.13,728.28L394.18,512.33 59.08,807.38h630.15z"/>
+</vector>

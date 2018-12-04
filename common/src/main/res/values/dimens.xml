@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--navigationView的icon大小-->
+    <dimen name="design_navigation_icon_size">22dp</dimen>
     <!--头像高度 -->
     <dimen name="portraitMinSize">@dimen/len_36</dimen>
     <dimen name="portraitSize">@dimen/len_40</dimen>

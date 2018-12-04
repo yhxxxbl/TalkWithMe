@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!--navigationView的icon大小-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!--navigationView的icon大小|ICON与文字的间距-->
     <dimen name="design_navigation_icon_size">22dp</dimen>
+    <dimen name="design_navigation_icon_padding" tools:override="true">16dp</dimen>
     <!--头像高度 -->
     <dimen name="portraitMinSize">@dimen/len_36</dimen>
     <dimen name="portraitSize">@dimen/len_40</dimen>

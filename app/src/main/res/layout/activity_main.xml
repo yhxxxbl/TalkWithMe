@@ -180,7 +180,20 @@
                         android:textColor="@color/black_alpha_128"
                         android:textSize="@dimen/font_10"/>
             </LinearLayout>
+
         </RelativeLayout>
+        <LinearLayout
+                android:layout_marginRight="@dimen/len_24"
+                android:layout_marginBottom="@dimen/len_14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right">
+
+            <ImageView
+                    android:id="@+id/nav_drawer_img"
+                    android:layout_width="@dimen/len_96"
+                    android:layout_height="@dimen/len_172"/>
+        </LinearLayout>
 
     </android.support.design.widget.NavigationView>
 

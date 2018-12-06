@@ -8,7 +8,14 @@
 <!--    顶部导航条中的Icon和二级字体的颜色-->
         <item name="colorControlNormal">@color/white_alpha_240</item>
         <item name="colorControlActivated">@color/textPrimary</item>
+
+        <item name="android:windowExitTransition">@transition/fade</item>
+        <item name="android:windowEnterAnimation">@transition/fade</item>
+        <item name="android:windowReenterTransition">@transition/fade</item>
     </style>
+
+
+
 
     <style name="AppTheme.TransStatusBar.Base" parent="AppTheme">
         <item name="android:windowTranslucentStatus">true</item>
@@ -16,6 +23,9 @@
         <item name="android:windowAnimationStyle">@null</item>
         <item name="android:windowIsFloating">false</item>
         <item name="android:windowFrame">@null</item>
+        <item name="android:windowExitTransition">@transition/fade</item>
+        <item name="android:windowEnterAnimation">@transition/fade</item>
+        <item name="android:windowReenterTransition">@transition/fade</item>
     </style>
 
     <style name="AppTheme.TransStatusBar" parent="AppTheme.TransStatusBar.Base" />

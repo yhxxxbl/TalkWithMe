@@ -14,10 +14,12 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.AnticipateOvershootInterpolator;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.ViewTarget;
@@ -65,6 +67,9 @@ public class MainActivity extends Activity implements
 
     @BindView(R.id.drawLayout)
     DrawerLayout mDrawerLayout;
+
+    @BindView(R.id.nav_drawer_img)
+    ImageView mNavImageView;
 
     private NavHelper<Integer> mNavHelper;
 
@@ -144,7 +149,7 @@ public class MainActivity extends Activity implements
                 return true;
             }
         });
-        Glide.with(getApplicationContext())
+        Glide.with(this)
                 .load(R.drawable.header_photo)
                 .centerCrop()
                 .into(new ViewTarget<View, GlideDrawable>(mHeaderLyaout) {
@@ -154,6 +159,10 @@ public class MainActivity extends Activity implements
                         this.view.setBackground(resource.getCurrent());
                     }
                 });
+        Glide.with(this)
+                .load(R.drawable.nav_drawer_img)
+                .centerCrop()
+                .into(mNavImageView);
     }
 
     @Override
